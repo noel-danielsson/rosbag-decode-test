@@ -1,0 +1,22 @@
+[project]
+name = "rosbag-decode"
+version = "0.1.0"
+description = "ROS 2 bags as pandas DataFrames without a ROS installation"
+readme = "README.md"
+requires-python = "==3.13.5"
+dependencies = ["rosbags==0.11.5", "pandas==3.0.5"]
+
+[dependency-groups]
+dev = ["pytest>=8", "numpy>=2"]
+analysis = ["numpy>=2", "matplotlib>=3.10", "rasterio>=1.4", "pyproj>=3.7", "panel>=1.9", "bokeh>=3.9"]
+
+[project.scripts]
+takeoff-analysis = "rosbag_decode.analysis.cli:main"
+
+[build-system]
+requires = ["hatchling==1.27.0"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["integration: complete bundled takeoff bag"]

@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+outputs/
+.uv-cache/
+rosbag2_2025_11_14-14_23_19_foil_i_takeoff/

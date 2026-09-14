@@ -1,0 +1,6 @@
+[submodule "FRB-ROS"]
+	path = FRB-ROS
+	url = https://github.com/CASE-Lab/FRB-ROS.git
+[submodule "MARV-Test-Data"]
+	path = MARV-Test-Data
+	url = https://github.com/CASE-Lab/MARV-Test-Data.git

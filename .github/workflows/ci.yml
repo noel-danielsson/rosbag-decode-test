@@ -1,0 +1,19 @@
+name: Reproducible decoder and analysis
+on: [push, pull_request]
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Initialize only pinned FRB definitions
+        run: git submodule update --init --recursive FRB-ROS
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.5.4"
+      - run: uv python install 3.13.5
+      - run: uv sync --locked --group analysis
+      - run: uv run --locked --group analysis python -m pytest -q -m "not integration"
